@@ -1,4 +1,5 @@
 plotly
 mysql-connector-python
+mariadb
 SQLAlchemy
 mysqlclient == 2.2.4
