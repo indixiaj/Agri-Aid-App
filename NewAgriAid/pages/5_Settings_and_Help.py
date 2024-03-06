@@ -1,4 +1,4 @@
-Aimport streamlit as st
+import streamlit as st
 import datetime
 
 # Layout and styling
