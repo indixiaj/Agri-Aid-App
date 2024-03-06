@@ -38,19 +38,26 @@ NPKdata = pd.read_csv("sensorData.csv")
 
 ########################################################################
 
-    
-# Database configuration
-db_config = {
-    'user': 'root',
-    'password': 'agriaid321',
-    'host': '34.147.193.127',
-    'database': 'mydb'
-}
+
+
+# Comment out for streamlit test
+
+# # Database configuration
+# db_config = {
+#     'user': 'root',
+#     'password': 'agriaid321',
+#     'host': '34.147.193.127',
+#     'database': 'mydb'
+# }
+# Comment out for streamlit test
+
+
+
 # Connect to the database
 def db_connection():
     conn = None
     try:
-        conn = mysql.connector.connect(**db_config)
+        conn = st.connection('mysql', type ='sql')
         st.sidebar.success("Successfully connected to the database")
     except mysql.connector.Error as error:
         st.sidebar.error(f"Error connecting to MySQL: {error}")
