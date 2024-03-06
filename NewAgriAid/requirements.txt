@@ -2,4 +2,5 @@ plotly
 mysql-connector-python
 sqlalchemy
 pkgconfig
+libmysqlclient
 mysqlclient
