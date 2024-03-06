@@ -1,4 +1,4 @@
 plotly
 mysql-connector-python
-mysqlclient
+mysqlclient-connector
 SQLAlchemy
