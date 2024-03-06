@@ -1,4 +1,4 @@
 plotly
 mysql-connector-python
 sqlalchemy
-mysqlclient
+mysqlclient == 2.1.1
