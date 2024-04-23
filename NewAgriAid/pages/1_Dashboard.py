@@ -40,17 +40,13 @@ NPKdata = pd.read_csv("sensorData.csv")
 
 
 
-# Comment out for streamlit test
-
-# # Database configuration
-# db_config = {
-#     'user': 'root',
-#     'password': 'agriaid321',
-#     'host': '34.147.193.127',
-#     'database': 'mydb'
-# }
-# Comment out for streamlit test
-
+# Database configuration
+db_config = {
+    'user': 'root',
+    'password': 'ES410_Project',
+    'host': '34.34.136.92',
+    'database': 'mydb'
+}
 
 
 # Connect to the database
