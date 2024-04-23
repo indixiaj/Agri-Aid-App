@@ -21,8 +21,8 @@ st.set_page_config(page_title="Soil Temperature", page_icon="🌡️", layout='w
 # Database configuration
 db_config = {
     'user': 'root',
-    'password': 'agriaid321',
-    'host': '34.147.193.127',
+    'password': 'ES410_Project',
+    'host': '34.34.136.92',
     'database': 'mydb'
 }
 # Connect to the database
