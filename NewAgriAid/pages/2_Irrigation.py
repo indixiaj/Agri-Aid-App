@@ -19,59 +19,6 @@ db_config = {
     'host': '34.34.136.92',
     'database': 'mydb'
 }
-# Connect to the database
-def db_connection():
-    conn = None
-    try:
-        conn = mysql.connector.connect(**db_config)
-        st.sidebar.success("Successfully connected to the database")
-    except mysql.connector.Error as error:
-        st.sidebar.error(f"Error connecting to MySQL: {error}")
-    return conn
-
-# Retrieve data from the database and convert it to a pandas DataFrame
-def retrieve_data():
-    conn = db_connection()
-    if conn is not None:
-        cursor = conn.cursor()
-        try:
-            query = "SELECT * FROM control_outputs"
-            cursor.execute(query)
-            rows = cursor.fetchall()
-            data = pd.DataFrame(rows, columns=['id', 'hr', 'output', 'timestamp'])
-            return data
-        except mysql.connector.Error as error:
-            st.error(f"Failed to retrieve data from MySQL table: {error}")
-            return pd.DataFrame()
-        finally:
-            if cursor is not None:
-                cursor.close()
-            if conn is not None:
-                conn.close()
-    else:
-        st.error("Failed to connect to the database")
-        return pd.DataFrame()
-    
-# Retrieve data from the database
-data = retrieve_data()
-            #df = pd.DataFrame(data)
-            #print(df.head())
-
-# Drop the rows with NULL values to avoid errors in the chart
-data = data.dropna()
-
-# Convert the 'timestamp' column to datetime format for better charting
-data['timestamp'] = pd.to_datetime(data['timestamp'])
-
-##########################################################################
-
-# Database configuration
-db_config = {
-    'user': 'root',
-    'password': 'ES410_Project',
-    'host': '34.34.136.92',
-    'database': 'mydb'
-}
 
 # Connect to the database
 def db_connection():
@@ -105,13 +52,6 @@ def retrieve_data():
     else:
         st.error("Failed to connect to the database")
         return pd.DataFrame()
-
-# Layout and styling
-st.set_page_config(page_title='AgriAid Dashboard', layout='wide')
-
-# Title of the dashboard
-st.title('AgriAid Dashboard')
-st.markdown("### Monitoring Soil Conditions")
 
 # Retrieve data from the database
 data = retrieve_data()
