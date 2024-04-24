@@ -36,7 +36,7 @@ def retrieve_data():
     if conn is not None:
         cursor = conn.cursor()
         try:
-            query = "SELECT * FROM soil_measurements"
+            query = "SELECT * FROM control_outputs"
             cursor.execute(query)
             rows = cursor.fetchall()
             data = pd.DataFrame(rows, columns=['id', 'hr', 'output', 'timestamp'])
