@@ -25,6 +25,7 @@ db_config = {
     'host': '34.34.136.92',
     'database': 'mydb'
 }
+
 # Connect to the database
 def db_connection():
     conn = None
@@ -57,18 +58,15 @@ def retrieve_data():
     else:
         st.error("Failed to connect to the database")
         return pd.DataFrame()
-    
+
 # Retrieve data from the database
 data = retrieve_data()
-            #df = pd.DataFrame(data)
-            #print(df.head())
 
 # Drop the rows with NULL values to avoid errors in the chart
 data = data.dropna()
 
 # Convert the 'timestamp' column to datetime format for better charting
 data['timestamp'] = pd.to_datetime(data['timestamp'])
-
 ##########################################################################
 
 st.markdown("# 🌡️ Soil Temperature")
