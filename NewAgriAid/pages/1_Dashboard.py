@@ -48,12 +48,11 @@ db_config = {
     'database': 'mydb'
 }
 
-
 # Connect to the database
 def db_connection():
     conn = None
     try:
-        conn = st.connection('mysql', type ='sql')
+        conn = mysql.connector.connect(**db_config)
         st.sidebar.success("Successfully connected to the database")
     except mysql.connector.Error as error:
         st.sidebar.error(f"Error connecting to MySQL: {error}")
@@ -81,11 +80,16 @@ def retrieve_data():
     else:
         st.error("Failed to connect to the database")
         return pd.DataFrame()
-    
+
+# Layout and styling
+st.set_page_config(page_title='AgriAid Dashboard', layout='wide')
+
+# Title of the dashboard
+st.title('AgriAid Dashboard')
+st.markdown("### Monitoring Soil Conditions")
+
 # Retrieve data from the database
 data = retrieve_data()
-            #df = pd.DataFrame(data)
-            #print(df.head())
 
 # Drop the rows with NULL values to avoid errors in the chart
 data = data.dropna()
