@@ -81,13 +81,6 @@ def retrieve_data():
         st.error("Failed to connect to the database")
         return pd.DataFrame()
 
-# Layout and styling
-st.set_page_config(page_title='AgriAid Dashboard', layout='wide')
-
-# Title of the dashboard
-st.title('AgriAid Dashboard')
-st.markdown("### Monitoring Soil Conditions")
-
 # Retrieve data from the database
 data = retrieve_data()
 
